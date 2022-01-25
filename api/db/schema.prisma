@@ -23,3 +23,11 @@ model Weather {
   ddd_x          Float?
   ff_avg         Float?
 }
+
+model StationIndex {
+    station_name  String
+    latitude  Float
+    longitude Float
+    Elevation Float
+    station_number  Int @id
+  }
