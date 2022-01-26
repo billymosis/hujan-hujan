@@ -8,8 +8,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Station {
+  station_number Int       @id @default(autoincrement())
+  station_name   String?
+  latitude       Float?
+  longitude      Float?
+  elevation      Float?
+  Weather        Weather[]
+}
+
 model Weather {
-  id             Int     @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   ddd_car        String?
   Tanggal        String?
   station_number Int?
@@ -22,12 +31,5 @@ model Weather {
   ff_x           Float?
   ddd_x          Float?
   ff_avg         Float?
+  Station        Station? @relation(fields: [station_number], references: [station_number], onDelete: NoAction, onUpdate: NoAction)
 }
-
-model StationIndex {
-    station_name  String
-    latitude  Float
-    longitude Float
-    Elevation Float
-    station_number  Int @id
-  }

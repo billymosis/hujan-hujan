@@ -1,15 +1,3 @@
-// export const QUERY = gql`
-//   query FindWeatherListQuery($page: 2) {
-//     weatherPage(page: $page) {
-//       weathers {
-//         id
-//         Tanggal
-//       }
-//       count
-//     }
-//   }
-// `
-
 export const QUERY = gql`
   query weathersQuery($page: Int, $dataCount: Int) {
     weatherPage(page: $page, dataCount: $dataCount) {
