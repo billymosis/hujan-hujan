@@ -15,8 +15,8 @@ const Routes = () => {
     <Router>
       <DashboardLayout>
         <Route path="/" page={HomePage} name="home" />
-        <Route path="/about/{station_number}/{type}/{date_range}" page={AboutPage} name="about" />
-        <Route path="/t-graph" page={TGraphPage} name="tGraph" />
+        <Route path="/about" page={AboutPage} name="about" />
+        <Route path="/t-graph/{stationNumber:Int}/{type}/{dateRange}" page={TGraphPage} name="tGraph" />
         <Route path="/input" page={InputPage} name="input" />
         <Route notfound page={NotFoundPage} />
       </DashboardLayout>

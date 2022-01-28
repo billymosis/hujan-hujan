@@ -1,8 +1,10 @@
+import { BsTrash2 } from 'react-icons/bs'
 import { DateRangePicker } from '@mantine/dates'
 import { Select, MultiSelect, Button } from '@mantine/core'
 import { useState } from 'react'
 import dayjs from 'dayjs'
 import { navigate, routes } from '@redwoodjs/router'
+
 const InputForm = ({ stations, callLocation }) => {
   const [value, setValue] = useState(null)
   const [dateValue, setDateValue] = useState([
@@ -41,19 +43,27 @@ const InputForm = ({ stations, callLocation }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate(
-      routes.about({
-        station_number: value,
-        date_range: dateValue.map((x) => dayjs(x).format('YYYY-MM-DD')),
+      routes.tGraph({
+        stationNumber: value,
+        dateRange: dateValue.map((x) => dayjs(x).format('YYYY-MM-DD')),
         type: typeValue,
       })
     )
   }
 
+  const handleClear = (e) => {
+    e.preventDefault()
+    setValue('')
+    setDateValue(null)
+    setTypeValue([])
+  }
+
   return (
-    <>
-      <form id="form1">
+    <div className="flex flex-col gap-4">
+      <form id="form1" className="flex flex-col gap-4">
         <Select
           clearable
+          required
           label="Choose weather station"
           placeholder="Choose One"
           data={data.map(({ label, value }) => ({
@@ -66,6 +76,7 @@ const InputForm = ({ stations, callLocation }) => {
           onChange={(x) => selectHandler(x)}
         />
         <DateRangePicker
+          required
           minDate={dayjs(new Date('2000-01-01')).toDate()}
           maxDate={dayjs(new Date('2021-12-31')).toDate()}
           label="Date range:"
@@ -75,6 +86,7 @@ const InputForm = ({ stations, callLocation }) => {
           clearable
         />
         <MultiSelect
+          required
           value={typeValue}
           onChange={setTypeValue}
           clearable
@@ -83,16 +95,30 @@ const InputForm = ({ stations, callLocation }) => {
           placeholder="Choose available data types"
         />
       </form>
-      <Button
-        onClick={(e) => handleSubmit(e)}
-        form="form1"
-        type="submit"
-        radius="md"
-        size="xl"
-      >
-        Submit
-      </Button>
-    </>
+      <div className="flex flex-row gap-2 justify-around">
+        <Button
+          className="bg-blue-500 w-full"
+          onClick={(e) => handleSubmit(e)}
+          form="form1"
+          type="submit"
+          radius="md"
+          size="xl"
+        >
+          Submit
+        </Button>
+        <Button
+          leftIcon={<BsTrash2 />}
+          className="hover:bg-blue-50"
+          onClick={(e) => handleClear(e)}
+          type="reset"
+          radius="md"
+          size="xl"
+          variant="outline"
+        >
+          Clear
+        </Button>
+      </div>
+    </div>
   )
 }
 

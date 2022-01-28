@@ -4,7 +4,7 @@ import { Link, routes } from '@redwoodjs/router'
 const MyLink = ({ route, text }) => {
   return (
     <Link to={route}>
-      <Button className="w-full" variant="filled">
+      <Button className="w-full " variant="outline">
         {text}
       </Button>
     </Link>
@@ -12,12 +12,11 @@ const MyLink = ({ route, text }) => {
 }
 const SideBar = () => {
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <MyLink route={routes.home()} text={'Home'} />
-      {/* <MyLink route={routes.about()} text={'About'} /> */}
       <MyLink route={routes.input()} text={'Input'} />
-      <MyLink route={routes.tGraph()} text={'Graph'} />
-    </>
+      <MyLink route={routes.about()} text={'About'} />
+    </div>
   )
 }
 

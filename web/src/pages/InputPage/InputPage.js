@@ -1,12 +1,10 @@
 import { MetaTags } from '@redwoodjs/web'
-
-import CGraph from 'src/components/CGraphCell'
+import InputCell from 'src/components/InputCell'
 const InputPage = () => {
   return (
     <>
       <MetaTags title="Input" description="Input page" />
-
-      <CGraph />
+      <InputCell className="m-10" />
     </>
   )
 }
