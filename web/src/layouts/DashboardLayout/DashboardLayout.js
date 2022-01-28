@@ -31,7 +31,7 @@ const DashboardLayout = ({ children }) => {
             <span className="text-lg font-bold">Menu</span>
           </Navbar.Section>
           <Navbar.Section grow mt="lg">
-            <SideBar />
+            <SideBar setOpen={() => setOpened(!opened)} />
           </Navbar.Section>
           <Navbar.Section>By Billy Mosis Priambodo</Navbar.Section>
         </Navbar>

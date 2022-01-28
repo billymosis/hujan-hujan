@@ -2,7 +2,7 @@ import { useState } from 'react'
 import 'leaflet/dist/leaflet'
 import InputForm from '../InputForm/InputForm'
 import StationMap from '../StationMap/StationMap'
-
+import { Loader } from '@mantine/core'
 export const QUERY = gql`
   query StationList {
     stations {
@@ -14,7 +14,12 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <div className="flex justify-center align-middle h-screen items-center">
+    <Loader />
+    <span className="mx-4">Loading</span>
+  </div>
+)
 
 export const Empty = () => <div>Empty</div>
 

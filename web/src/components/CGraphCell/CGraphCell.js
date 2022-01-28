@@ -1,5 +1,5 @@
 import BGraph from '../BGraph/BGraph'
-
+import { Loader } from '@mantine/core'
 export const QUERY = gql`
   query StationList(
     $stationNumber: Int!
@@ -49,7 +49,12 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <div className="flex justify-center align-middle h-screen items-center">
+    <Loader />
+    <span className="mx-4">Loading</span>
+  </div>
+)
 
 export const Empty = () => <div>Empty</div>
 
@@ -58,7 +63,6 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ station, weatherRange, weatherData }) => {
-  console.log(weatherRange, station)
   return (
     <BGraph
       station={station}

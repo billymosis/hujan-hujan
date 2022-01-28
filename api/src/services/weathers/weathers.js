@@ -28,6 +28,9 @@ export const weatherRange = ({ stationNumber, from, to, weatherData }) => {
   console.log(weatherData, from, to)
   return {
     weathers: db.weather.findMany({
+      orderBy: {
+        Tanggal: 'asc',
+      },
       where: {
         AND: [
           {

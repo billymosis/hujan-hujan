@@ -23,7 +23,6 @@ const TGraphPage = ({ stationNumber, type, dateRange }) => {
   const weatherTypeObject = weatherType.map((x) => ({ [x]: true }))
   const weatherData = { ...dummy, ...Object.assign({}, ...weatherTypeObject) }
 
-  console.log(from, to)
   return (
     <>
       <MetaTags title="TGraph" description="TGraph page" />

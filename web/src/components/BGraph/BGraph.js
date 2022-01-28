@@ -12,7 +12,6 @@ import { useState } from 'react'
 import { ExportToCsv } from 'export-to-csv'
 
 const BGraph = ({ station, weatherData, weatherDataType }) => {
-  console.log(station)
   const [data, setData] = useState(weatherData.filter((x) => x.RR !== 8888))
   const [filter, setFilter] = useState(true)
   const dataFilter = Object.fromEntries(
@@ -55,19 +54,19 @@ const BGraph = ({ station, weatherData, weatherDataType }) => {
   }
   return (
     <>
-      <span>
+      <span className="flex justify-between">
         <span className="font-bold">{station.station_name}</span>
-        <code className="bg-gray-100 rounded-md p-1 mx-2">
-          Latitude: {station.latitude}
-        </code>
-        <code className="bg-gray-100 rounded-md p-1 mx-2">
-          Longitude: {station.longitude}
-        </code>
-        {station.elevation && (
+        <div className="grid md:grid-cols-3 gap-2">
           <code className="bg-gray-100 rounded-md p-1 mx-2">
-            Elevation: {station.Elevation}
+            Latitude: {station.latitude}
           </code>
-        )}
+          <code className="bg-gray-100 rounded-md p-1 mx-2">
+            Longitude: {station.longitude}
+          </code>
+          <code className="bg-gray-100 rounded-md p-1 mx-2">
+            Elevation: {station.Elevation ? station.Elevation : 'No Data'}
+          </code>
+        </div>
       </span>
       <ResponsiveContainer width="100%" height={300} className="mb-6">
         <LineChart
@@ -134,7 +133,7 @@ const BGraph = ({ station, weatherData, weatherDataType }) => {
             <li>ddd_car: Arah angin terbanyak (°)</li>
           </ul>
         </div>
-        <div className="m-auto">
+        <div className="m-auto my-4">
           <Button onClick={handleDownload} className="bg-blue-500" size="xl">
             Download
           </Button>

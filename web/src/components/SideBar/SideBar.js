@@ -1,21 +1,21 @@
 import { Button } from '@mantine/core'
 import { Link, routes } from '@redwoodjs/router'
 
-const MyLink = ({ route, text }) => {
+const MyLink = ({ route, text, setOpen }) => {
   return (
-    <Link to={route}>
+    <Link to={route} onClick={setOpen}>
       <Button className="w-full " variant="outline">
         {text}
       </Button>
     </Link>
   )
 }
-const SideBar = () => {
+const SideBar = ({ setOpen }) => {
   return (
     <div className="flex flex-col gap-4">
-      <MyLink route={routes.home()} text={'Home'} />
-      <MyLink route={routes.input()} text={'Input'} />
-      <MyLink route={routes.about()} text={'About'} />
+      <MyLink setOpen={setOpen} route={routes.home()} text={'Home'} />
+      <MyLink setOpen={setOpen} route={routes.input()} text={'Input'} />
+      <MyLink setOpen={setOpen} route={routes.about()} text={'About'} />
     </div>
   )
 }
