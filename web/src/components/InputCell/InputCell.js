@@ -31,7 +31,7 @@ export const Success = ({ stations }) => {
   const [location, setLocation] = useState(null)
 
   return (
-    <div className="h-screen flex flex-wrap-reverse md:flex-nowrap gap-10 px-4">
+    <div className="flex flex-wrap-reverse md:flex-nowrap gap-10 px-4">
       <div className="gap-4 md:basis-1/4 basis-full flex-col">
         <InputForm stations={stations} callLocation={(x) => setLocation(x)} />
       </div>

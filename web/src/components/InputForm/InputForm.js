@@ -95,7 +95,7 @@ const InputForm = ({ stations, callLocation }) => {
           placeholder="Choose available data types"
         />
       </form>
-      <div className="flex flex-row gap-2 justify-around">
+      <div className="flex flex-row gap-2 justify-around mb-8">
         <Button
           className="bg-blue-500 w-full"
           onClick={(e) => handleSubmit(e)}

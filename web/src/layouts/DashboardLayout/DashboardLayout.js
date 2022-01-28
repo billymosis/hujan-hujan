@@ -33,7 +33,9 @@ const DashboardLayout = ({ children }) => {
           <Navbar.Section grow mt="lg">
             <SideBar setOpen={() => setOpened(!opened)} />
           </Navbar.Section>
-          <Navbar.Section>By Billy Mosis Priambodo</Navbar.Section>
+          <Navbar.Section>
+            <a href="https://billymosis.com">By Billy Mosis Priambodo</a>
+          </Navbar.Section>
         </Navbar>
       }
       header={

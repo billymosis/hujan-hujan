@@ -30,7 +30,7 @@ const AboutPage = () => {
         <br />
         <p>
           So the web creating process start with gathering data from BMKG site,
-          I use python notebook to feth and clean all 21 years and 190 stations
+          I use python notebook to fetch and clean all 21 years and 190 stations
           data between 2000-2021 with 4 main libary that is requests, pandas,
           json and re (regex). Why only 21 years data? BMKG has been so bad to
           provide information which station has the data and the date range
