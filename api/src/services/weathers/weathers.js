@@ -22,9 +22,10 @@ export const weatherPage = ({ page = 1, dataCount = 5 }) => {
   }
 }
 
-export const weatherRange = ({ stationNumber, from, to }) => {
+export const weatherRange = ({ stationNumber, from, to, weatherData }) => {
   const date = new Date(from)
   date.setDate(date.getDate() - 1)
+  console.log(weatherData, from, to)
   return {
     weathers: db.weather.findMany({
       where: {
@@ -40,10 +41,8 @@ export const weatherRange = ({ stationNumber, from, to }) => {
           },
         ],
       },
-    }),
-    Station: db.station.findUnique({
-      where: {
-        station_number: stationNumber,
+      select: {
+        ...weatherData,
       },
     }),
   }

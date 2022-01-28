@@ -1,4 +1,5 @@
 export const schema = gql`
+  scalar Date
   type Weather {
     id: Int!
     ddd_car: String
@@ -16,6 +17,21 @@ export const schema = gql`
     Station: Station
   }
 
+  input WeatherInput {
+    ddd_car: Boolean
+    Tanggal: Boolean
+    station_number: Boolean
+    Tn: Boolean
+    Tx: Boolean
+    Tavg: Boolean
+    RH_avg: Boolean
+    RR: Boolean
+    ss: Boolean
+    ff_x: Boolean
+    ddd_x: Boolean
+    ff_avg: Boolean
+  }
+
   type WeatherRange {
     weathers: [Weather!]!
     Station: Station
@@ -30,8 +46,12 @@ export const schema = gql`
     weathers: [Weather!]! @requireAuth
     weather(id: Int!): Weather! @requireAuth
     weatherPage(page: Int, dataCount: Int): WeatherPage @requireAuth
-    weatherRange(stationNumber: Int!, from: Date, to: Date): WeatherRange
-      @requireAuth
+    weatherRange(
+      stationNumber: Int!
+      weatherData: WeatherInput!
+      from: Date
+      to: Date
+    ): WeatherRange @requireAuth
   }
 
   input CreateWeatherInput {
