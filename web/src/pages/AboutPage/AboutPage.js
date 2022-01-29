@@ -1,7 +1,7 @@
 import { MetaTags } from '@redwoodjs/web'
-import BCA from '../../assets/QRBCA_cr.jpg'
-import OVO from '../../assets/QROVO_cr.jpg'
-import GOPAY from '../../assets/QRGOPAY_cr.jpg'
+// import BCA from '../../assets/QRBCA_cr.jpg'
+// import OVO from '../../assets/QROVO_cr.jpg'
+// import GOPAY from '../../assets/QRGOPAY_cr.jpg'
 
 const AboutPage = () => {
   return (
@@ -46,27 +46,27 @@ const AboutPage = () => {
           search for fullstack development framework and found redwoodjs.
         </p>
         <br />
-        <p>
-          Well that is just about of about us page. To keep this website running
-          and maintained you can donate to:
-        </p>
-        <div className="flex flex-wrap md:flex-nowrap gap-6 my-2">
-          <img
-            src={GOPAY}
-            className="w-3/4 m-auto md:w-32 md:h-32"
-            alt="Donate Gopay"
-          />
-          <img
-            src={OVO}
-            className="w-3/4 m-auto md:w-32 md:h-32"
-            alt="Donate OVO"
-          />
-          <img
-            src={BCA}
-            className="w-3/4 m-auto md:w-32 md:h-32"
-            alt="Donate BCA"
-          />
-        </div>
+        {/* <p> */}
+        {/*   Well that is just about of about us page. To keep this website running */}
+        {/*   and maintained you can donate to: */}
+        {/* </p> */}
+        {/* <div className="flex flex-wrap md:flex-nowrap gap-6 my-2"> */}
+        {/*   <img */}
+        {/*     src={GOPAY} */}
+        {/*     className="w-3/4 m-auto md:w-32 md:h-32" */}
+        {/*     alt="Donate Gopay" */}
+        {/*   /> */}
+        {/*   <img */}
+        {/*     src={OVO} */}
+        {/*     className="w-3/4 m-auto md:w-32 md:h-32" */}
+        {/*     alt="Donate OVO" */}
+        {/*   /> */}
+        {/*   <img */}
+        {/*     src={BCA} */}
+        {/*     className="w-3/4 m-auto md:w-32 md:h-32" */}
+        {/*     alt="Donate BCA" */}
+        {/*   /> */}
+        {/* </div> */}
         <h3 className="font-semibold text-lg mt-4">Source & Credit: </h3>
         <ul>
           <li>
