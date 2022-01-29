@@ -43,7 +43,7 @@ const BGraph = ({ station, weatherData, weatherDataType }) => {
       showLabels: true,
       showTitle: true,
       title:
-        'Table generated! Please remove unused column and replace all 8888 9999 or null value to whatever you want. Buy me a burger? send Ovo or Gopay to 085649601601',
+        'Table generated! Please remove unused column and replace all 8888 9999 or null value to whatever you want. Buy me a burger?',
       useTextFile: false,
       useBom: true,
       useKeysAsHeaders: true,
