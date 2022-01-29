@@ -3,11 +3,7 @@ import { MetaTags } from '@redwoodjs/web'
 const HomePage = () => {
   return (
     <>
-      <MetaTags title="Home" description="Home page" />
-      <MetaTags
-        name="description"
-        content="Data hujan Indonesia lengkap! Terdapat 190 Stasiun Hujan dan 21 tahun data. Bersumber dari BMKG."
-      />
+      <MetaTags title="Home" tag={false} description={false} />
       <div>
         <h1 className="font-bold text-4xl text-blue-400"> Hujan-Hujan </h1>
         <h2 className="font-semibold text-2xl text-blue-300"> data hujan </h2>

@@ -3,7 +3,7 @@ import InputCell from 'src/components/InputCell'
 const InputPage = () => {
   return (
     <>
-      <MetaTags title="Input" description="Input page" />
+      <MetaTags title="Input data hujan" tag={false} description={false} />
       <InputCell className="m-10" />
     </>
   )

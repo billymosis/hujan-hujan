@@ -6,7 +6,7 @@ import GOPAY from '../../assets/QRGOPAY_cr.jpg'
 const AboutPage = () => {
   return (
     <>
-      <MetaTags title="About" description="About page" />
+      <MetaTags title="About" tag={false} description={false} />
       <div>
         <h1 className="font-bold text-4xl text-blue-400"> Hujan-Hujan </h1>
         <h2 className="font-semibold text-2xl text-blue-300"> data hujan </h2>
