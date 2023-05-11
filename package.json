@@ -1,24 +1,42 @@
 {
+  "name": "new-hujan-hujan",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "api",
-      "web",
-      "packages/*"
-    ]
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@mantine/core": "^6.0.10",
+    "@mantine/dates": "^6.0.10",
+    "@mantine/hooks": "^6.0.10",
+    "dayjs": "^1.11.7",
+    "export-to-csv": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.11.1",
+    "recharts": "^2.6.2"
   },
   "devDependencies": {
-    "@redwoodjs/core": "0.42.1"
-  },
-  "eslintConfig": {
-    "extends": "@redwoodjs/eslint-config",
-    "root": true
-  },
-  "engines": {
-    "node": ">=14.17 <=16.x",
-    "yarn": ">=1.15 <2"
-  },
-  "prisma": {
-    "seed": "yarn rw exec seed"
+    "@types/leaflet": "^1.9.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.40.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2"
   }
 }

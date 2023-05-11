@@ -1,13 +1,24 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
 .DS_Store
-.env
-.netlify
-.redwood
-dev.db*
-dist
-dist-babel
-node_modules
-yarn-error.log
-web/public/mockServiceWorker.js
-web/types/graphql.d.ts
-api/types/graphql.d.ts
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
