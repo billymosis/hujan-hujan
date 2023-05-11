@@ -6,9 +6,10 @@ import {
   CircleMarker,
 } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import { LatLngExpression } from 'leaflet'
 
 const StationMap = ({ stations, location }) => {
-  const MAP_CENTER_POS = [-1.14460503881007, 113.1897451617413]
+  const MAP_CENTER_POS: LatLngExpression = [-1.14460503881007, 113.1897451617413]
   const data = stations.map((x) => ({
     label: x['station_name'],
     value: x['station_number'].toString(),

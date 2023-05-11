@@ -12,6 +12,21 @@ import { useEffect, useState } from 'react'
 import { ExportToCsv } from 'export-to-csv'
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 
+type weatherResponse = {
+  Tanggal: string,
+  ddd_car?: string,
+  station_number?: string,
+  Tn?: string,
+  Tx?: string,
+  Tavg?: string,
+  RH_avg?: string,
+  RR?: number,
+  ss?: string,
+  ff_x?: string,
+  ddd_x?: string,
+  ff_avg?: string,
+}
+
 const dummy = {
   Tanggal: true,
   ddd_car: false,
@@ -28,7 +43,7 @@ const dummy = {
 }
 
 const GraphPage = () => {
-  const { data: _data, type }: { data: unknown[] } = useLoaderData();
+  const { data: _data, type }: { data: weatherResponse[], type: string } = useLoaderData() as { data: weatherResponse[], type: string }
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -63,7 +78,7 @@ const GraphPage = () => {
       setData(_data)
     } else {
       setFilter(true)
-      setData(_data.filter((x) => x.RR !== 8888))
+      setData(_data.filter((x: weatherResponse) => x.RR !== 8888))
     }
   }
 
@@ -105,7 +120,7 @@ const GraphPage = () => {
             Longitude: {station.longitude}
           </code>
           <code className="bg-gray-100 rounded-md p-1 mx-2">
-            Elevation: {station.Elevation ? station.Elevation : 'No Data'}
+            Elevation: No Data
           </code>
         </div>
       </span>
@@ -133,7 +148,7 @@ const GraphPage = () => {
               return (
                 <Checkbox
                   label={key}
-                  checked={value}
+                  checked={!!value}
                   onChange={() => handleLine(key)}
                   key={i}
                 />

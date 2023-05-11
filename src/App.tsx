@@ -1,25 +1,37 @@
+import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import DashboardLayout from './layouts/DashboardLayout/DashboardLayout';
-import InputPage from './pages/InputPage/InputPage';
-import HomePage from './pages/HomePage/HomePage';
-import AboutPage from './pages/AboutPage/AboutPage';
-import GraphPage from './pages/GraphPage/GraphPage';
+
+const DashboardLayout = React.lazy(() => import('./layouts/DashboardLayout/DashboardLayout'))
+const InputPage = React.lazy(() => import('./pages/InputPage/InputPage'))
+const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'))
+const AboutPage = React.lazy(() => import('./pages/AboutPage/AboutPage'))
+const GraphPage = React.lazy(() => import('./pages/GraphPage/GraphPage'))
 
 const DOMAIN = import.meta.env.VITE_DOMAIN
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <DashboardLayout />,
+    element: (
+      <DashboardLayout />
+    ),
     errorElement: <DashboardLayout isError />,
     children: [
       {
         index: true,
-        element: <HomePage />
+        element: (
+          <React.Suspense fallback={<div>Loading ...</div>}>
+            <HomePage />
+          </React.Suspense>
+        ),
       },
       {
         path: 'input',
-        element: <InputPage />,
+        element: (
+          <React.Suspense fallback={<div>Loading ...</div>}>
+            <InputPage />
+          </React.Suspense>
+        ),
         loader: async () => {
           const res = await fetch(`${DOMAIN}/stations`);
           const data = await res.json();
@@ -28,7 +40,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'input/:data',
-        element: <GraphPage />,
+        element: (
+          <React.Suspense fallback={<div>Loading ...</div>}>
+            <GraphPage />
+          </React.Suspense>
+        ),
         loader: async (props) => {
           const url = new URL(props.request.url);
           const { pathname, search, searchParams } = url;
@@ -42,14 +58,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <AboutPage />
+        element: (
+          <React.Suspense fallback={<div>Loading ...</div>}>
+            <AboutPage />
+          </React.Suspense>
+        ),
       },
     ]
   }
 ])
 
 function App() {
-  console.log({DOMAIN})
   return (
     <RouterProvider router={router} />
   )
