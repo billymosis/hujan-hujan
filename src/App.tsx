@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import GraphPage from './pages/GraphPage/GraphPage';
 
+const DOMAIN = import.meta.env.VITE_DOMAIN
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
         path: 'input',
         element: <InputPage />,
         loader: async () => {
-          const res = await fetch('http://127.0.0.1:8080/stations');
+          const res = await fetch(`${DOMAIN}/stations`);
           const data = await res.json();
           return data;
         }
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
           const stationNumber = searchParams.get('stationNumber')
           const type = searchParams.get('type') || ''
           const dateRange = searchParams.get('dateRange') || ''
-          const res = await fetch(`http://127.0.0.1:8080${pathname}${search}`);
+          const res = await fetch(`${DOMAIN}${pathname}${search}`);
           const data = await res.json();
           return { data, stationNumber, type, dateRange };
         }
@@ -47,6 +49,7 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+  console.log({DOMAIN})
   return (
     <RouterProvider router={router} />
   )
